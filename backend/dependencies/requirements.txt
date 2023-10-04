@@ -7,8 +7,24 @@
 asgiref==3.7.2
     # via django
 django==4.2.6
+    # via
+    #   -r backend/dependencies/requirements.in
+    #   django-filter
+    #   djangorestframework
+    #   djangorestframework-jsonapi
+django-filter==23.3
     # via -r backend/dependencies/requirements.in
+djangorestframework==3.14.0
+    # via
+    #   -r backend/dependencies/requirements.in
+    #   djangorestframework-jsonapi
+djangorestframework-jsonapi==6.1.0
+    # via -r backend/dependencies/requirements.in
+inflection==0.5.1
+    # via djangorestframework-jsonapi
 psycopg2==2.9.9
     # via -r backend/dependencies/requirements.in
+pytz==2023.3.post1
+    # via djangorestframework
 sqlparse==0.4.4
     # via django

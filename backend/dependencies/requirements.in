@@ -1,2 +1,5 @@
 django
+djangorestframework
+djangorestframework-jsonapi
+django-filter
 psycopg2
