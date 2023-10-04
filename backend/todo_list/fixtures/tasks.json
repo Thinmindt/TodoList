@@ -1,0 +1,63 @@
+[
+    {
+        "model": "todo_list.project",
+        "pk": 1,
+        "fields": {
+            "title": "Clean Kitchen",
+            "description": "Prepare the kitchen for daily use."
+        }
+    },
+    {
+        "model": "todo_list.task",
+        "pk": 1,
+        "fields": {
+            "title": "Wash dishes",
+            "due_date": "2023-10-10",
+            "project_id": 1
+        }
+    },
+    {
+        "model": "todo_list.task",
+        "pk": 2,
+        "fields": {
+            "title": "Wipe counters",
+            "due_date": "2023-10-10",
+            "project_id": 1
+        }
+    },
+    {
+        "model": "todo_list.project",
+        "pk": 2,
+        "fields": {
+            "title": "Make Dinner",
+            "description": "Prepare a lovely meal for the family"
+        }
+    },
+    {
+        "model": "todo_list.task",
+        "pk": 3,
+        "fields": {
+            "title": "Purchase groceries",
+            "due_date": "2023-10-10",
+            "project_id": 2
+        }
+    },
+    {
+        "model": "todo_list.task",
+        "pk": 4,
+        "fields": {
+            "title": "Chop vegetables",
+            "due_date": "2023-10-10",
+            "project_id": 2
+        }
+    },
+    {
+        "model": "todo_list.task",
+        "pk": 5,
+        "fields": {
+            "title": "Simmer soup",
+            "due_date": "2023-10-10",
+            "project_id": 2
+        }
+    }
+]
