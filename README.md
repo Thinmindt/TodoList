@@ -17,3 +17,17 @@ or
 ```
 pip-compile --output-file=backend/dependencies/dev-requirements.txt backend/dependencies/dev-requirements.in
 ```
+
+# Make database migration
+
+After editing a model in `backend/todo_list/models.py`, create a migration file with:
+
+```
+python manage.py makemigrations todo_list
+```
+
+Then, run the database migration with:
+
+```
+python manage.py migrate
+```
