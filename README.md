@@ -2,32 +2,23 @@
 
 A simple to-do list to experiment with Django and React
 
-# Add a python pip dependency
+## To start developing
 
-Add the dependency's pip tag to `backend/dependencies/requirements.in` for production requirements or `backend/dependencies/dev-requirements.in` for development dependencies.
+The easiest way to start developing on this project is to use a VSCode dev container.
 
-To pin the version and ensure the dependency is added to subsequent dev container and production builds:
+Clone the repository to your local environment and open it in VSCode. You should be prompted to build the dev container. This sets up all of the dependencies for the project and connects to a Postgres container.
 
-```
-pip-compile --output-file=backend/dependencies/requirements.txt backend/dependencies/requirements.in
-```
-
-or
+Run a database migration to set up Postgres:
 
 ```
-pip-compile --output-file=backend/dependencies/dev-requirements.txt backend/dependencies/dev-requirements.in
-```
-
-# Make database migration
-
-After editing a model in `backend/todo_list/models.py`, create a migration file with:
-
-```
-python manage.py makemigrations todo_list
-```
-
-Then, run the database migration with:
-
-```
+cd backend
 python manage.py migrate
 ```
+
+Also in the backend folder, run the Django server:
+
+```
+python manage.py runserver 0.0.0.0:8000
+```
+
+You should now be able to direct your browser to `localhost:8000` to view the REST JSON API. Read more about the backend in the [backend readme](backend/README.md).
