@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED 1
 
 ENV NODE_VERSION=18.18.0
+ENV NPM_VERSION=10.2.0
 ENV NVM_DIR=/home/vscode/.nvm
 
 # This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
@@ -22,8 +23,6 @@ RUN apt-get update \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
     && apt-get -y install git iproute2 procps lsb-release \
-    # 
-
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
@@ -45,12 +44,13 @@ RUN sudo apt-get update \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash \
     && . "${NVM_DIR}/nvm.sh" && nvm install ${NODE_VERSION} \ 
     && . "${NVM_DIR}/nvm.sh" && nvm use v${NODE_VERSION} \ 
-    && . "${NVM_DIR}/nvm.sh" && nvm alias default v${NODE_VERSION}
+    && . "${NVM_DIR}/nvm.sh" && nvm alias default v${NODE_VERSION} \
+    && npm install -g npm@${NPM_VERSION}
 
 # Install pip-tools for dependency management
 RUN pip install pip-tools
 
-# Add npm to PATH
+# Add nvm to PATH
 ENV PATH="${NVM_DIR}/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 # Switch back to dialog for any ad-hoc use of apt-get
